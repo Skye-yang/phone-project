@@ -7,7 +7,7 @@
         <div slot="item-text">首页</div> -->
         <template v-slot:item-icon><img src="assets/img/tabbar/home.png" alt=""></template>
         <template v-slot:item-icon-active><img src="assets/img/tabbar/home-active.png" alt=""></template>
-        <template v-slot:item-text><div>首页</div></template>
+        <template v-slot:item-text><div>首页首页</div></template>
       </tab-bar-item>
       <tab-bar-item path="/category">
         <template v-slot:item-icon><img src="assets/img/tabbar/category.png" alt=""></template>
