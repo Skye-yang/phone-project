@@ -1,5 +1,6 @@
 <template>
-  <tab-bar>
+  <div>
+    <tab-bar>
       <!-- <tab-bar-item path="/home" activeColor="blue"> -->
       <tab-bar-item path="/home">
         <!-- <img slot="item-icon" src="@/assets/img/tabbar/home.png" alt="">
@@ -25,6 +26,7 @@
         <template v-slot:item-text><div>我的</div></template>
       </tab-bar-item>
     </tab-bar>
+  </div>
 </template>
 
 <script>
