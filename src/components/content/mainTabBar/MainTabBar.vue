@@ -1,11 +1,7 @@
 <template>
   <div>
     <tab-bar>
-      <!-- <tab-bar-item path="/home" activeColor="blue"> -->
       <tab-bar-item path="/home">
-        <!-- <img slot="item-icon" src="@/assets/img/tabbar/home.png" alt="">
-        <img slot="item-icon-active" src="@/assets/img/tabbar/home-active.png" alt="">
-        <div slot="item-text">首页</div> -->
         <template v-slot:item-icon><img src="assets/img/tabbar/home.png" alt=""></template>
         <template v-slot:item-icon-active><img src="assets/img/tabbar/home-active.png" alt=""></template>
         <template v-slot:item-text><div>首页</div></template>

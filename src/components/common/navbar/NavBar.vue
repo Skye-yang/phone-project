@@ -15,14 +15,17 @@ export default {
 <style>
   .nav-bar{
     display: flex;
+    height: 44px;
     line-height: 44px;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
   }
   .left, .right{
     width: 60px;
-    background: #ff00ff;
+    /* background: #ff00ff; */
   }
   .center{
     flex: 1;
-    background: #00ff00;
+    /* background: #00ff00; */
   }
 </style>
