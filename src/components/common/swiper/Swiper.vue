@@ -214,6 +214,8 @@ export default {
 #hy-swiper{
   overflow: hidden;
   position: relative;
+  /* height: 200px; */
+  
 }
 .swiper{
   display: flex;

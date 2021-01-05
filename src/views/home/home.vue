@@ -27,8 +27,8 @@ export default {
   },
   data() {
     return {
-      banners: [],
-      recommends: []
+      banners: [{acm: 1, image: '123.png', title: '女装', link: '234.com'}],
+      recommends: [{acm: 1, image: '123.png', title: '女装', link: '234.com'}]
     }
   },
   created() {
