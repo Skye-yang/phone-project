@@ -7,6 +7,7 @@
     <recommend-view :recommends='recommends'></recommend-view>
     <feature-view></feature-view>
     <tab-control :titles="['流行', '新款', '精选']" class="tab-control"></tab-control>
+    <goods-list :goods="goods['pop'].list"></goods-list>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import FeatureView from './childComps/FeatureView'
 
 import NavBar from 'components/common/navbar/NavBar'
 import TabControl from 'components/content/tabControl/TabControl'
+import GoodsList from 'components/content/goods/GoodsList'
 
 import {getHomeMultidata, getHomeGoods} from 'network/home'
 
@@ -28,16 +30,17 @@ export default {
     RecommendView,
     FeatureView,
     NavBar,
-    TabControl
+    TabControl,
+    GoodsList
   },
   data() {
     return {
       banners: [{acm: 1, image: '123.png', title: '女装', link: '234.com'}],
       recommends: [{acm: 1, image: '123.png', title: '女装', link: '234.com'}],
       goods: {
-        'pop': {page: 0, list: []},
-        'new': {page: 0, list: []},
-        'sell': {page: 0, list: []},
+        'pop': {page: 0, list: [{price: '129.00', show: {img: '111.png'}, title: 'aaa', cfav: '222'}]},
+        'new': {page: 0, list: [{price: '129.00', show: {img: '111.png'}, title: 'aaa', cfav: '222'}]},
+        'sell': {page: 0, list: [{price: '129.00', show: {img: '111.png'}, title: 'aaa', cfav: '222'}]},
       }
     }
   },
@@ -90,5 +93,6 @@ export default {
   .tab-control {
     position: sticky;
     top: 44px;
+    z-index: 9;
   }
 </style>
