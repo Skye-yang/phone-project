@@ -3,7 +3,7 @@
     <nav-bar class="home-nav">
       <template v-slot:center>购物街</template>
     </nav-bar>
-    <scroll class="content">
+    <scroll class="content" ref="scroll" :probe-type="3" @scroll="contentScroll">
       <home-swiper :banners='banners'></home-swiper>
       <recommend-view :recommends='recommends'></recommend-view>
       <feature-view></feature-view>
@@ -115,6 +115,9 @@
         <li>商品列表100</li>
       </ul>
     </scroll>
+    <back-top @click="backClick" v-show="isShowBackTop"></back-top>
+    <!-- .native修饰符：监听组件根元素的原生事件
+    <back-top @click.native="backClick"></back-top> -->
   </div>
 </template>
 
@@ -127,6 +130,7 @@ import NavBar from 'components/common/navbar/NavBar'
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
+import BackTop from 'components/content/backTop/BackTop'
 
 import {getHomeMultidata, getHomeGoods} from 'network/home'
 
@@ -140,7 +144,8 @@ export default {
     NavBar,
     TabControl,
     GoodsList,
-    Scroll
+    Scroll,
+    BackTop
   },
   data() {
     return {
@@ -186,6 +191,7 @@ export default {
         },
       },
       currentType: 'pop',
+      isShowBackTop: false
     }
   },
   computed: {
@@ -220,6 +226,14 @@ export default {
           break;
       }
     },
+    backClick() {
+      // console.log('backClick');
+      this.$refs.scroll.scrollTo(0, 0, 500);
+    },
+    contentScroll(position) {
+      // console.log(position);
+      this.isShowBackTop = (-position.y) > 1000
+    },
 
     /**
      * 网络请求相关方法
@@ -247,7 +261,7 @@ export default {
 <style scoped>
 #home {
     padding-top: 44px;
-    /* height: 100vh; */
+    height: 100vh;
     position: relative;
   }
 
@@ -268,7 +282,6 @@ export default {
   }
 
   .content {
-    /* height: 300px; */
     overflow: hidden;
     position: absolute;
     top: 44px;
@@ -276,6 +289,12 @@ export default {
     left: 0;
     right: 0;
   }
+
+  /* .content {
+    height: calc(100% - 93px);
+    overflow: hidden;
+    margin-top: 44px;
+  } */
 
 </style>
   
