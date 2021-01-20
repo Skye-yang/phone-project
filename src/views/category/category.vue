@@ -3,6 +3,7 @@
     <h2>分类</h2>
     <div class="wrapper" ref="aaa">
       <ul class="content">
+        <button @click="btnClick">按钮</button>
         <li>分类列表1</li>
         <li>分类列表2</li>
         <li>分类列表3</li>
@@ -118,24 +119,30 @@ export default {
       scroll: null
     }
   },
-  created() {
-    
-  },
   mounted() {
     this.scroll = new BScroll('.wrapper', {
       probeType: 2, // 监测实时滚动（取值：0/1/2/3）
-      click: true, // 监听里面的点击事件（默认值为false，应该是监听不到的）
       pullUpLoad: true, // 上拉加载更多
     })
+    // this.scroll.on('scroll',(position) => {
+    //   console.log(position);
+    // })
+    this.scroll.on('pullingUp', () => {
+      console.log('上拉加载更多');
+    })
+  },
+  methods: {
+    btnClick() {
+      console.log('btnClick');
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .wrapper{
   height: 200px;
   border: 1px solid red;
   overflow: hidden;
-  /* overflow-y: scroll; */
 }
 </style>
